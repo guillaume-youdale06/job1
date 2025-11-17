@@ -1,0 +1,34 @@
+import math
+
+a = float(input("Saisissez une première longueur : "))
+b = float(input("Saisissez une deuxième longueur : "))
+c = float(input("Saisissez une troisième longueur : "))
+triangle = False
+triangle_type = ""
+isocele = False
+
+if a >= b and a >= c :
+    if a <= b + c :
+        triangle = True
+elif b >= a and b >= c :
+    if b <= a + c :
+        triangle = True
+elif c >= a and c >= b :
+    if c <= a + b :
+        triangle = True
+
+if triangle :
+    if a == b and a == c:
+        print("Il est possible de tracer un triangle. Il sagit d'un triangle équilatéral")
+    elif a == b or a == c or b == c :
+        print("Il est possible de tracer un triangle. Il sagit d'un triangle isocèle")
+        isocele = True
+    elif a**2 == b**2 + c**2 or b**2 == a**2 + c**2 or c**2 == a**2 + b**2 :
+        if isocele :
+            print("Il est possible de tracer un triangle. Il sagit d'un triangle rectangle isocèle")
+        else :
+            print("Il est possible de tracer un triangle. Il sagit d'un triangle rectangle")
+    else :
+        print("Il est possible de tracer un triangle. Il sagit d'un simple triangle scalène")
+else :
+    print("Il est impossible de tracer un triangle")
